@@ -158,13 +158,13 @@ void VGlass::hide(void) {
 	visible = false;
 	Image::glassHide(hdc, x, y);
 }
-
-void VGlass::moveTo(int newX, int newY) {
-	hide();
-	x = newX;
-	y = newY;
-	show();
-}
+//
+//void VGlass::moveTo(int newX, int newY) {
+//	hide();
+//	x = newX;
+//	y = newY;
+//	show();
+//}
 
 void VGlass::drug(const int& shift) {
 	if (KEY_DOWN(VK_DOWN))
