@@ -43,7 +43,7 @@ void Point::moveTo(int newX, int newY) {
 	show();
 };
 
-void Point::drug(const int& shift) {
+void Point::drug(int shift) {
 	if (KEY_DOWN(VK_DOWN))
 		moveTo(x, y + shift);
 	if (KEY_DOWN(VK_UP))
@@ -78,7 +78,7 @@ void Glass::moveTo(int newX, int newY) {
 	show();
 }
 
-void Glass::drug(const int& shift) {
+void Glass::drug(int shift) {
 	if (KEY_DOWN(VK_DOWN))
 		moveTo(x, y + shift);
 	if (KEY_DOWN(VK_UP))
@@ -87,17 +87,4 @@ void Glass::drug(const int& shift) {
 		moveTo(x + shift, y);
 	if (KEY_DOWN(VK_LEFT))
 		moveTo(x - shift, y);
-}
-
-void Glass::expand(int deltaHeight, int deltaWidth) {
-	hide();
-	height += deltaHeight;
-	width += deltaWidth;
-	if (deltaHeight < 0) height = 5;
-	if (deltaWidth < 0) width = 5;
-	show();
-}
-
-void Glass::reduce(int deltaHeight, int deltaWidth) {
-	expand(-deltaHeight, -deltaWidth);
 }

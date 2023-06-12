@@ -21,7 +21,7 @@ public:
 	void hide();
 	bool isVisible();
 	void moveTo(int newX, int newY);
-	void drug(const int& shift);
+	void drug(int shift);
 };
 
 class Glass : public Point {
@@ -34,9 +34,7 @@ public:
 	void show();
 	void hide();
 	void moveTo(int newX, int newY);
-	void drug(const int& shift);
-	void expand(int deltaHeight, int deltaWidth);
-	void reduce(int deltaHeight, int deltaWidth);
+	void drug(int shift);
 };
 
 #pragma once
