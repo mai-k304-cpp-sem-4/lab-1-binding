@@ -10,6 +10,13 @@ using namespace std;
 HDC hdc;
 void main() {
 	setlocale(LC_ALL, "ru");
+	cout << "Выберите тип связывания: \n 0: Ранее связывание \n 1: Позднее связывание" << endl;
+	int temp;
+	cin >> temp;
+	if ((temp > 1) || (temp < 0)) {
+		cout << "Ошибка, неверно выбран тип связывания" << endl;
+		exit(0);
+	}
 	cout << "Введите размер шага: ";
 	int shift = 10;
 	cin >> shift;
@@ -20,9 +27,18 @@ void main() {
 		hdc = GetWindowDC(hwnd);
 		if (hdc != 0) {
 			Glass AGlass(x0, y0);
-			AGlass.show();
-			while (!KEY_DOWN(49)) {
-				AGlass.drug(shift);
+			VGlass BGlass(x0, y0);
+			if (temp == 0) {
+				AGlass.show();
+				while (!KEY_DOWN(49)) {
+					AGlass.drug(shift);
+				}
+			}
+			else {
+				BGlass.show();
+				while (!KEY_DOWN(49)) {
+					BGlass.drug(shift);
+				}
 			}
 		}
 	}
